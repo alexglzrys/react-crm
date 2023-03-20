@@ -1,7 +1,9 @@
 function App() {
   return (
     <div>
-      <h1>Administrador de Clientes</h1>
+      <h1 className="text-3xl font-bold text-center">
+        Administrador de Clientes
+      </h1>
     </div>
   );
 }
