@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import "./index.css";
-import { ClientesNuevo } from "./pages/ClientesNuevo";
+import {
+  ClientesNuevo,
+  action as registrarClienteAction,
+} from "./pages/ClientesNuevo";
 import { Home, loader as loaderClientes } from "./pages/Home";
 
 /**
@@ -31,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: "clientes/nuevo",
         element: <ClientesNuevo />,
+        action: registrarClienteAction,
       },
     ],
   },
