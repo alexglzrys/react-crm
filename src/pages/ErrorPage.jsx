@@ -18,10 +18,10 @@ export const ErrorPage = () => {
     <div className="text-center">
       <h1 className="text-blue-700 text-2xl mb-3 font-bold">CRM - Clientes</h1>
       <p className="font-bold mb-10">
-        Lo sentimos, detectamos un error crítico en el sistema
+        Lo sentimos, detectamos un error en el sistema
       </p>
       <p className="font-light text-sm bg-red-700 text-white p-3">
-        {error.message}
+        {error.statusText || error.message}
       </p>
     </div>
   );

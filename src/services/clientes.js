@@ -22,3 +22,12 @@ export const createCliente = async(cliente) => {
         console.log(error)
     }
 }
+
+export const getCliente = async(id) => {
+    // Leer información almacenada en una variable de entorno en VITE
+    const URL = `${import.meta.env.VITE_API_URL}/clientes/${id}`
+
+    const peticion = await fetch(URL);
+    const respuesta = await peticion.json();
+    return respuesta;
+}
