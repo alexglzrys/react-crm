@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { Cliente } from "../components/Cliente";
+import { getAllClientes } from "../services/clientes";
 
 /**
  * A partir de la versión 6.4 de React Router Dom
@@ -15,43 +16,8 @@ import { Cliente } from "../components/Cliente";
  * Sin embargo, aun podemos seguir usando la técnica anterior
  */
 export const loader = () => {
-  const clientes = [
-    {
-      id: 1,
-      nombre: "Juan",
-      telefono: 102013313,
-      email: "juan@juan.com",
-      empresa: "Codigo Con Juan",
-    },
-    {
-      id: 2,
-      nombre: "Karen",
-      telefono: 138198313,
-      email: "karen@juan.com",
-      empresa: "Codigo Con Juan",
-    },
-    {
-      id: 3,
-      nombre: "Josue",
-      telefono: 31983913,
-      email: "josue@juan.com",
-      empresa: "Codigo Con Juan",
-    },
-    {
-      id: 4,
-      nombre: "Miguel",
-      telefono: 319381983,
-      email: "miguel@juan.com",
-      empresa: "Codigo Con Juan",
-    },
-    {
-      id: 5,
-      nombre: "Pedro",
-      telefono: 1398198938,
-      email: "pedro@juan.com",
-      empresa: "Codigo Con Juan",
-    },
-  ];
+  // conectar al servicio para recuperar clientes
+  const clientes = getAllClientes();
   return clientes;
 };
 
