@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import "./index.css";
-import { ClientesNuevo, loader as loaderClientes } from "./pages/ClientesNuevo";
-import { Home } from "./pages/Home";
+import { ClientesNuevo } from "./pages/ClientesNuevo";
+import { Home, loader as loaderClientes } from "./pages/Home";
 
 /**
  * React Router Dom
@@ -26,11 +26,11 @@ const router = createBrowserRouter([
         // El elemento Home será usado como vista en el path / (principal)
         index: true,
         element: <Home />,
+        loader: loaderClientes,
       },
       {
         path: "clientes/nuevo",
         element: <ClientesNuevo />,
-        loader: loaderClientes,
       },
     ],
   },

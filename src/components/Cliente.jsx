@@ -1,12 +1,29 @@
 export const Cliente = ({ cliente }) => {
   const { id, nombre, telefono, email, empresa } = cliente;
   return (
-    <tr>
-      <td className="p-2">{nombre}</td>
-      <td className="p-2">{telefono}</td>
-      <td className="p-2">{email}</td>
-      <td className="p-2">{empresa}</td>
-      <td className="p-2"></td>
+    <tr className="border-b">
+      <td className="p-4 space-y-2">
+        <p className="text-gray-800 text-2xl">{nombre}</p>
+        <p>{empresa}</p>
+      </td>
+      <td className="p-4">
+        <p className="text-gray-600">
+          <span className="text-gray-800 font-bold uppercase">Email: </span>
+          {email}
+        </p>
+        <p className="text-gray-600">
+          <span className="text-gray-800 font-bold uppercase">Tel: </span>
+          {telefono}
+        </p>
+      </td>
+      <td className="p-4 flex gap-2">
+        <button className="text-sm uppercase font-bold text-blue-600 hover:text-blue-700">
+          Editar
+        </button>
+        <button className="text-sm uppercase font-bold text-red-600 hover:text-red-700">
+          Eliminar
+        </button>
+      </td>
     </tr>
   );
 };
