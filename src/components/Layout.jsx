@@ -14,7 +14,7 @@ export const Layout = () => {
   return (
     <div className="md:flex md:min-h-screen">
       <aside className="md:w-1/4 bg-blue-900 p-10">
-        <h1 className="font-bold text-center text-2xl text-white">
+        <h1 className="font-bold text-center text-3xl text-white">
           CRM - Clientes
         </h1>
         <nav className="mt-10">

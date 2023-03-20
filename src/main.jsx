@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import "./index.css";
-import { ClientesNuevo } from "./pages/ClientesNuevo";
+import { ClientesNuevo, loader as loaderClientes } from "./pages/ClientesNuevo";
 import { Home } from "./pages/Home";
 
 /**
@@ -30,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "clientes/nuevo",
         element: <ClientesNuevo />,
+        loader: loaderClientes,
       },
     ],
   },
