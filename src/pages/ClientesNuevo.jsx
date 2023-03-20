@@ -1,6 +1,7 @@
-import { Form, useActionData, useNavigate } from "react-router-dom";
+import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
 import { Error } from "../components/Error";
 import Formulario from "../components/Formulario";
+import { createCliente } from "../services/clientes";
 
 /**
  * La API de React Router DOM 6.4
@@ -33,8 +34,16 @@ export const action = async ({ request }) => {
     errores.push("Email no válido");
   }
 
-  // Retornar información a la página que envió el formulario
-  return errores;
+  // Retornar información sobre errores encontrados en la petición
+  if (Object.keys(errores).length) {
+    return errores;
+  }
+
+  // Todo es correcto, realizar petición HTTP para crear el recurso de cliente
+  await createCliente(datos);
+  // Redireccionar a otra ruta (API RRD 6.4). Se puede seguir utiizando el enfoque tradicional,
+  // pero no es bueno mezclar con la API de React Router Dom
+  return redirect("/");
 };
 
 export const ClientesNuevo = () => {

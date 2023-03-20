@@ -15,9 +15,9 @@ import { getAllClientes } from "../services/clientes";
  * datos.
  * Sin embargo, aun podemos seguir usando la técnica anterior
  */
-export const loader = () => {
+export const loader = async () => {
   // conectar al servicio para recuperar clientes
-  const clientes = getAllClientes();
+  const clientes = await getAllClientes();
   return clientes;
 };
 
