@@ -7,6 +7,7 @@ import {
   ClientesNuevo,
   action as registrarClienteAction,
 } from "./pages/ClientesNuevo";
+import { ErrorPage } from "./pages/ErrorPage";
 import { Home, loader as loaderClientes } from "./pages/Home";
 
 /**
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: loaderClientes,
+        errorElement: <ErrorPage />,
       },
       {
         path: "clientes/nuevo",
