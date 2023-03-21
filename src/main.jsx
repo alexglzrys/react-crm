@@ -6,6 +6,7 @@ import "./index.css";
 import {
   ClientesEditar,
   loader as editarClienteLoader,
+  action as editarClienteAction,
 } from "./pages/ClientesEditar";
 import {
   ClientesNuevo,
@@ -41,11 +42,13 @@ const router = createBrowserRouter([
         path: "clientes/nuevo",
         element: <ClientesNuevo />,
         action: registrarClienteAction,
+        errorElement: <ErrorPage />,
       },
       {
         path: "clientes/:clienteId/editar",
         element: <ClientesEditar />,
         loader: editarClienteLoader,
+        action: editarClienteAction,
         errorElement: <ErrorPage />,
       },
     ],

@@ -31,3 +31,19 @@ export const getCliente = async(id) => {
     const respuesta = await peticion.json();
     return respuesta;
 }
+
+export const updateCliente = async(id, cliente) => {
+    try {
+        const URL = import.meta.env.VITE_API_URL + '/clientes/' + id;
+        const peticion = await fetch(URL, {
+            method: 'PUT',
+            body: JSON.stringify(cliente),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const respuesta = await peticion.json();
+    } catch (error) {
+        console.log(error)
+    }
+}
