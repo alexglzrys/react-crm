@@ -1,4 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { Form, redirect, useNavigate } from "react-router-dom";
+import { deleteCliente } from "../services/clientes";
+
+// acción disparada por el formulario al momento de confirmar la eliminación de un cliente
+export const action = async ({ params }) => {
+  await deleteCliente(params.clienteId);
+  return redirect("/");
+};
 
 export const Cliente = ({ cliente }) => {
   const navigate = useNavigate();
@@ -26,9 +33,26 @@ export const Cliente = ({ cliente }) => {
         >
           Editar
         </button>
-        <button className="text-sm uppercase font-bold text-red-600 hover:text-red-700">
-          Eliminar
-        </button>
+        {/* Usando la API de RRD 6.4, 
+        para eliminar un recurso se tiene que envolver en un componente Form
+        especificndo la ruta (action) y me method */}
+        <Form
+          method="POST"
+          action={`/clientes/${id}/eliminar`}
+          onSubmit={(e) => {
+            // Si no hay confirmación, detenemos el comportamiento por defecto. (eliminar el recurso)
+            if (!confirm("¿Deseas eliminar este cliente?")) {
+              e.preventDefault();
+            }
+          }}
+        >
+          <button
+            type="submit"
+            className="text-sm uppercase font-bold text-red-600 hover:text-red-700"
+          >
+            Eliminar
+          </button>
+        </Form>
       </td>
     </tr>
   );

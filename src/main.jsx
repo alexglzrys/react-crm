@@ -14,6 +14,7 @@ import {
 } from "./pages/ClientesNuevo";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Home, loader as loaderClientes } from "./pages/Home";
+import { action as eliminarClienteAction } from "./components/Cliente";
 
 /**
  * React Router Dom
@@ -51,11 +52,20 @@ const router = createBrowserRouter([
         action: editarClienteAction,
         errorElement: <ErrorPage />,
       },
+      {
+        // Esta ruta no requiere de una vista, solo se invoca para eliminar un cliente
+        path: "clientes/:clienteId/eliminar",
+        action: eliminarClienteAction,
+      },
     ],
   },
   {
     path: "/nosotros",
     element: <h1>Nosotros</h1>,
+  },
+  {
+    path: "*",
+    element: <h1>Página no encontrada</h1>,
   },
 ]);
 
